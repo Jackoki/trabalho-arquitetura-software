@@ -1,5 +1,5 @@
-const LugarRepository = require('../repository/lugarRepository');
-const { ValidadorNomeLugar, ValidadorCategoriaLugar } = require('./lugarValidadores');
+const LugarRepository = require('../repository/lugarHistoricoRepository');
+const { ValidadorNomeLugar, ValidadorCategoriaLugar } = require('./lugarHistoricoValidadores');
 
 class LugarHistoricoService {
   static getNovoId(pais) {

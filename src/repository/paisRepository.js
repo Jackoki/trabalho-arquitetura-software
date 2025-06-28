@@ -1,4 +1,4 @@
-const database = require('./database');
+const database = require('../db/database');
 
 class PaisRepository {
   static listar() {
@@ -31,12 +31,11 @@ class PaisRepository {
     return Math.max(...database.paises.map(p => p.id));
   }
 
-  static buscarPorNome(nome) {
+  static buscarPaisPorNome(nome) {
     return database.paises.find(
       p => p.nome.toLowerCase() === nome.toLowerCase()
     );
   }
-  
 }
 
 module.exports = PaisRepository;
