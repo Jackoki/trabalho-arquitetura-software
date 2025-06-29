@@ -14,16 +14,19 @@ class LugarHistoricoService {
     validadorNome.validar(lugar);
   }
 
-  static adicionarLugar(pais, dadosLugar) {
-    this.validarLugar(dadosLugar);
-
-    const novoLugar = {
+  static criarLugar(pais, dadosLugar) {
+    return {
       id: this.getNovoId(pais),
       nome: dadosLugar.nome,
       descricao: dadosLugar.descricao || '',
       categoria: dadosLugar.categoria,
     };
+  }
 
+  static adicionarLugar(pais, dadosLugar) {
+    this.validarLugar(dadosLugar);
+
+    const novoLugar = this.criarLugar(pais, dadosLugar); // Chama o Factory Method
     LugarRepository.adicionar(pais, novoLugar);
     return novoLugar;
   }

@@ -14,11 +14,19 @@ class PaisService {
     validadorNome.validar(pais, PaisRepository.listar());
   }
 
+  static criarPais(nome, continente) {
+    return {
+      id: this.getNovoId(),
+      nome,
+      continente,
+      lugares: [],
+    };
+  }
+
   static adicionarPais(nome, continente) {
-    const novoPais = { id: this.getNovoId(), nome, continente, lugares: [] };
+    const novoPais = this.criarPais(nome, continente); // Chama o Factory Method
     this.validarPais(novoPais);
     PaisRepository.adicionar(novoPais);
-
     return novoPais;
   }
 

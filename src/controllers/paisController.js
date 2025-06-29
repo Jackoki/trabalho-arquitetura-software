@@ -1,4 +1,4 @@
-const PaisService = require('../services/paisServices');
+const Facade = require('../facade/facade');
 
 class PaisController {
   static adicionarPais(req, res) {
@@ -8,7 +8,7 @@ class PaisController {
         return res.status(400).json({ error: 'Nome e continente são obrigatórios.' });
       }
 
-      const novoPais = PaisService.adicionarPais(nome, continente);
+      const novoPais = Facade.adicionarPais(nome, continente);
       res.status(201).json(novoPais);
     } 
     
@@ -19,9 +19,11 @@ class PaisController {
 
   static listarPaises(req, res) {
     try {
-      const paises = PaisService.listarPaises();
+      const paises = Facade.listarPaises();
       res.status(200).json(paises);
-    } catch (error) {
+    } 
+    
+    catch (error) {
       res.status(500).json({ error: error.message });
     }
   }

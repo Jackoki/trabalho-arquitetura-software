@@ -5,10 +5,8 @@ const lugarRoutes = require('./src/routes/lugarRoutes');
 const app = express();
 const port = 3000;
 
-// Middleware para JSON
 app.use(express.json());
 
-// Rotas
 app.use(paisRoutes);
 app.use(lugarRoutes);
 
