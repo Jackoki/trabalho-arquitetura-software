@@ -24,7 +24,7 @@ class PaisService {
   }
 
   static adicionarPais(nome, continente) {
-    const novoPais = this.criarPais(nome, continente); // Chama o Factory Method
+    const novoPais = this.criarPais(nome, continente);
     this.validarPais(novoPais);
     PaisRepository.adicionar(novoPais);
     return novoPais;

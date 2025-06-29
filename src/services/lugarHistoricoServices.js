@@ -26,7 +26,7 @@ class LugarHistoricoService {
   static adicionarLugar(pais, dadosLugar) {
     this.validarLugar(dadosLugar);
 
-    const novoLugar = this.criarLugar(pais, dadosLugar); // Chama o Factory Method
+    const novoLugar = this.criarLugar(pais, dadosLugar);
     LugarRepository.adicionar(pais, novoLugar);
     return novoLugar;
   }
